@@ -15,6 +15,7 @@ public class InMemoryTaskDao implements TaskDao {
 
     private final Set<Task> tasks = new HashSet<>();
     private Integer id = 0;
+
     @Override
     public Integer saveTask(final Task task) {
         id++;

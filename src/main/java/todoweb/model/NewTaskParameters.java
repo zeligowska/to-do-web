@@ -5,5 +5,6 @@ package todoweb.model;
  */
 public interface NewTaskParameters {
     String getName();
+
     String getDetails();
 }

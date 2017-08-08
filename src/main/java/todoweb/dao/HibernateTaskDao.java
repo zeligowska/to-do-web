@@ -1,14 +1,11 @@
 package todoweb.dao;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import todoweb.model.Task;
 
-
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -61,7 +58,7 @@ public class HibernateTaskDao implements TaskDao {
         final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         final CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Task.class);
         final Root<Task> root = criteriaQuery.from(Task.class);
-        criteriaQuery.where(criteriaBuilder.equal(root.get("id"),id)).getResultType();
+        criteriaQuery.where(criteriaBuilder.equal(root.get("id"), id)).getResultType();
         final Task task = (Task) entityManager.createQuery(criteriaQuery).getSingleResult();
         entityManager.remove(task);
     }
