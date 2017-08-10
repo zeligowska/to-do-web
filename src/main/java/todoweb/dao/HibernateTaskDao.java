@@ -36,6 +36,8 @@ public class HibernateTaskDao implements TaskDao {
 
     @Override
     public Set<Task> getAllTasks() {
+        saveTask(Task.builder().name("task").details("szczegóły").build());
+        saveTask(Task.builder().name("task2").details("szczegóły2").build());
         final CriteriaQuery criteriaQuery = entityManager.getCriteriaBuilder().createQuery(Task.class);
         criteriaQuery.from(Task.class);
         final List<Task> tasks = entityManager.createQuery(criteriaQuery).getResultList();
