@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Tasks from "./Tasks";
+import NameForm from "./NameForm";
 
 
 export default class App extends React.Component {
@@ -8,21 +9,30 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {tasks: []};
+		this.refresh = this.refresh.bind(this);
 	}
 
 	componentDidMount() {
-		fetch('/tasks', {method: 'GET'})
-		.then(response => {
-		    return response.json();
-		})
-		.then(tasks => {
-			this.setState({tasks});
-		});
+		this.refresh();
+	}
+
+	refresh() {
+	    fetch('/tasks', {method: 'GET'})
+        		.then(response => {
+        		    return response.json();
+        		})
+        		.then(tasks => {
+        			this.setState({tasks});
+        		});
 	}
 
 	render() {
 		return (
-			<Tasks tasks={this.state.tasks}/>
+		    <div>
+		        <NameForm />
+		        <button onClick={this.refresh}>Refresh</button>
+			    <Tasks tasks={this.state.tasks}/>
+			</div>
 		)
 	}
 }

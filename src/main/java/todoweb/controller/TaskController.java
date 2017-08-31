@@ -7,7 +7,10 @@ import todoweb.model.Task;
 import todoweb.service.TaskService;
 
 import javax.validation.Valid;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by mizeligo on 02.08.2017.
@@ -29,17 +32,21 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/tasks", method = RequestMethod.GET)
-    public Set<Task> getTasks() {
-        return taskService.getAllTasks();
+    public List<Task> getTasks() {
+        return getSortedTasks(taskService.getAllTasks());
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public Set<Task> searchTask(@RequestParam String query) {
-        return taskService.getTasks(query);
+    public List<Task> searchTask(@RequestParam String query) {
+        return getSortedTasks(taskService.getTasks(query));
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void deleteTask(@RequestParam Integer id) {
         taskService.deleteTask(id);
+    }
+
+    private List<Task> getSortedTasks(final Set<Task> tasks) {
+        return tasks.stream().sorted(Comparator.comparing(Task::getId)).collect(Collectors.toList());
     }
 }
