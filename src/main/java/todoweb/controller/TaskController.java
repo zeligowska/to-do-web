@@ -41,8 +41,8 @@ public class TaskController {
         return getSortedTasks(taskService.getTasks(query));
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void deleteTask(@RequestParam Integer id) {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public void deleteTask(@PathVariable Integer id) {
         taskService.deleteTask(id);
     }
 

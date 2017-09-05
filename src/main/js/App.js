@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Tasks from "./Tasks";
 import NameForm from "./NameForm";
+import SearchForm from "./SearchForm";
+
 
 
 export default class App extends React.Component {
@@ -10,6 +12,7 @@ export default class App extends React.Component {
 		super(props);
 		this.state = {tasks: []};
 		this.refresh = this.refresh.bind(this);
+		this.search = this.search.bind(this);
 	}
 
 	componentDidMount() {
@@ -26,12 +29,24 @@ export default class App extends React.Component {
         		});
 	}
 
+	search(query) {
+            const url = `/search?query=${query}`
+            fetch(url, {method: 'GET'})
+                .then(response => {
+                    return response.json();
+                })
+                .then(tasks => {
+                    this.setState({tasks});
+                });
+        }
+
 	render() {
 		return (
 		    <div>
-		        <NameForm />
+		        <NameForm refresh={this.refresh} />
+		        <SearchForm search={this.search} />
 		        <button onClick={this.refresh}>Refresh</button>
-			    <Tasks tasks={this.state.tasks}/>
+			    <Tasks refresh={this.refresh} tasks={this.state.tasks}/>
 			</div>
 		)
 	}

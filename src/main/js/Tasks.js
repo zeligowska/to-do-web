@@ -4,7 +4,7 @@ import Task from './Task'
 export default class Tasks extends React.Component{
 	render() {
 		const tasks = this.props.tasks.map(task =>
-			<Task key={task.id} task={task}/>
+			<Task refresh={this.props.refresh} key={task.id} task={task}/>
 		);
 		return (
 			<table>
@@ -13,6 +13,7 @@ export default class Tasks extends React.Component{
 					    <th>ID</th>
 						<th>Name</th>
 						<th>Details</th>
+						<th> </th>
 					</tr>
 					{tasks}
 				</tbody>
