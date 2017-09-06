@@ -1,9 +1,9 @@
 import React from "react";
 
-export default class Task extends React.Component{
+export default class Task extends React.Component {
 
     remove(id) {
-        const url = `/delete/${id}`
+        const url = `/delete/${id}`;
         fetch(url, {
             method: 'DELETE'
         }).then(() => {
@@ -11,14 +11,21 @@ export default class Task extends React.Component{
         });
     }
 
-	render() {
-		return (
-			<tr>
-				<td>{this.props.task.id}</td>
-				<td>{this.props.task.name}</td>
-				<td>{this.props.task.details}</td>
-				<td><button onClick={() => this.remove(this.props.task.id)}>X</button></td>
-			</tr>
-		)
-	}
+    render() {
+        return (
+            <ul className="list-group">
+                <div className="tasks">
+                <li className="list-group-item list-group-item-dark">
+                    <button onClick={() => this.remove(this.props.task.id)} className="btn btn-dark">
+                        <i className="fa fa-trash"> </i>
+                    </button>
+                    <div>
+                        {this.props.task.name}
+                    </div>
+                </li>
+                </div>
+                <li className="list-group-item list-group-item-light">{this.props.task.details}</li>
+            </ul>
+        )
+    }
 }

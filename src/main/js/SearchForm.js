@@ -19,12 +19,15 @@ export default class SearchForm extends React.Component {
     }
 
     render() {
-        return(
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    <input name="query" type="text" value={this.state.query} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Search" />
+        return (
+            <form className="search-form" onSubmit={this.handleSubmit}>
+                <div className="input-group">
+                    <input className="form-control" placeholder="Search" name="query" type="text"
+                           value={this.state.query} onChange={this.handleChange}/>
+                    <span className="input-group-btn">
+                        <button className="btn btn-secondary" type="submit" value="Search"><i className="fa fa-search"> </i></button>
+                    </span>
+                </div>
             </form>
         )
     }

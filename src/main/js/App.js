@@ -30,7 +30,7 @@ export default class App extends React.Component {
 	}
 
 	search(query) {
-            const url = `/search?query=${query}`
+            const url = `/search?query=${query}`;
             fetch(url, {method: 'GET'})
                 .then(response => {
                     return response.json();
@@ -42,10 +42,10 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-		    <div>
+		    <div className="container">
+				<h1 className="app-title">ToDo</h1>
 		        <NameForm refresh={this.refresh} />
 		        <SearchForm search={this.search} />
-		        <button onClick={this.refresh}>Refresh</button>
 			    <Tasks refresh={this.refresh} tasks={this.state.tasks}/>
 			</div>
 		)
@@ -55,4 +55,4 @@ export default class App extends React.Component {
 ReactDOM.render(
 	<App />,
 	document.getElementById('react')
-)
+);

@@ -1,13 +1,33 @@
-table {
-    border-collapse: collapse;
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eeeeee;
 }
 
-td, th {
-    border: 1px solid #999;
+h1 {
+    border: 5px solid #c6c8ca;
     padding: 0.5rem;
-    text-align: left;
+    text-align: center;
 }
 
-.name-form {
-    background-color: red;
+.new-task-form, .search-form {
+    border: 5px solid #c6c8ca;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-task-form .new-task-lines {
+    padding-right: 5px;
+    margin-bottom: 5px;
+}
+
+.container {
+    max-width: 400px;
+}
+.tasks {
+    display: flex;
 }

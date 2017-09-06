@@ -7,17 +7,9 @@ export default class Tasks extends React.Component{
 			<Task refresh={this.props.refresh} key={task.id} task={task}/>
 		);
 		return (
-			<table>
-				<tbody>
-					<tr>
-					    <th>ID</th>
-						<th>Name</th>
-						<th>Details</th>
-						<th> </th>
-					</tr>
+			<div>
 					{tasks}
-				</tbody>
-			</table>
+			</div>
 		)
 	}
 }
