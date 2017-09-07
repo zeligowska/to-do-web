@@ -14,16 +14,14 @@ export default class Task extends React.Component {
     render() {
         return (
             <ul className="list-group">
-                <div className="tasks">
-                <li className="list-group-item list-group-item-dark">
-                    <button onClick={() => this.remove(this.props.task.id)} className="btn btn-dark">
+                <li className="list-group-item list-group-item-dark tasks">
+                    <button onClick={() => this.remove(this.props.task.id)} className="remove-button btn btn-dark">
                         <i className="fa fa-trash"> </i>
                     </button>
-                    <div>
+                    <div className="task-name">
                         {this.props.task.name}
                     </div>
                 </li>
-                </div>
                 <li className="list-group-item list-group-item-light">{this.props.task.details}</li>
             </ul>
         )

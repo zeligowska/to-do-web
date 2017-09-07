@@ -25,7 +25,8 @@ export default class SearchForm extends React.Component {
                     <input className="form-control" placeholder="Search" name="query" type="text"
                            value={this.state.query} onChange={this.handleChange}/>
                     <span className="input-group-btn">
-                        <button className="btn btn-secondary" type="submit" value="Search"><i className="fa fa-search"> </i></button>
+                        <button className="btn btn-secondary" type="submit" value="Search"><i
+                            className="fa fa-search"> </i></button>
                     </span>
                 </div>
             </form>

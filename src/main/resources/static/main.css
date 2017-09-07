@@ -1,18 +1,23 @@
 body {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #eeeeee;
 }
 
-h1 {
+.btn.title-button {
     border: 5px solid #c6c8ca;
+    border-radius: 5px;
     padding: 0.5rem;
     text-align: center;
+    margin-bottom: 5px;
+    width: 320px;
+    font-weight: bold;
+    font-size: xx-large;
 }
 
 .new-task-form, .search-form {
     border: 5px solid #c6c8ca;
-    padding: 3rem 1.5rem;
+    border-radius: 5px;
+    padding: 5px 5px;
     text-align: center;
     margin-bottom: 0.5rem;
     display: flex;
@@ -21,13 +26,34 @@ h1 {
 }
 
 .new-task-form .new-task-lines {
-    padding-right: 5px;
+    margin-right: 5px;
+    width: 255px;
+}
+
+.list-group-item-dark.tasks {
+    display: flex;
+    flex-direction: row;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.list-group-item.list-group-item-light {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.app .list-group {
     margin-bottom: 5px;
 }
 
-.container {
-    max-width: 400px;
+.container.app {
+    max-width: 350px;
 }
-.tasks {
-    display: flex;
+
+.btn.remove-button {
+    padding: 1px 5px;
+
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
